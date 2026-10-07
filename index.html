@@ -10,7 +10,16 @@
     </style>
 </head>
 <body>
-    <!-- 🔴 นำลิงก์ Web App ของคุณ (ที่ลงท้ายด้วย /exec) มาใส่แทนข้อความภาษาไทยในเครื่องหมายคำพูดด้านล่างนี้ -->
-    <iframe src="https://script.google.com/macros/s/AKfycbz7hY28DB64-oYNV3JGuWwSq8gQlZtN4E4AnuRmHxbazxnSbjiJ2FlMS0x7F59FgizOzg/exec"></iframe>
+    <!-- กรอบที่จะดึง Web App มาแสดง -->
+    <iframe id="appFrame"></iframe>
+
+    <script>
+        // 🔴 1. นำลิงก์ Web App (ที่ลงท้ายด้วย /exec) มาวางในเครื่องหมายคำพูดด้านล่างนี้
+        const gasUrl = "https://script.google.com/macros/s/AKfycbz7hY28DB64-oYNV3JGuWwSq8gQ1ZtN4E4AnuRmHxbazxnSbjiJ2F1MS0x7F59FgizOzg/exec";
+        
+        // 2. โค้ดตัวนี้จะดึงคำสั่งจาก LINE (เช่น ?page=driver) มาต่อท้ายให้อัตโนมัติ
+        const queryParams = window.location.search;
+        document.getElementById('appFrame').src = gasUrl + queryParams;
+    </script>
 </body>
 </html>
